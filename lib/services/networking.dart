@@ -1,16 +1,16 @@
+import 'package:clima/utilities/config.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class NetworkHelper {
   final domain = 'api.openweathermap.org';
   final urlPath = '/data/2.5/weather';
-  final String apiKey = '305712ce702fef5e05b05a11dc2a4337';
 
   Future<dynamic> getDataFromLatLon(double latitude, double longitude) async {
     Map<String, String> query = {
       'lat': '$latitude',
       'lon': '$longitude',
-      'appid': '$apiKey',
+      'appid': '$kApiKey',
       'units': 'metric'
     };
 
@@ -20,7 +20,7 @@ class NetworkHelper {
   Future<dynamic> getDataFromCity(String city) async {
     Map<String, String> query = {
       'q': city,
-      'appid': '$apiKey',
+      'appid': '$kApiKey',
       'units': 'metric'
     };
 
